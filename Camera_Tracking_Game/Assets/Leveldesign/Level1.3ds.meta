@@ -1,0 +1,137 @@
+fileFormatVersion: 2
+guid: 4393425fba1f9854ebf4b4090b77e3b7
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Landschaft
+    100002: //RootNode
+    100004: W_rfel
+    100006: W_rfel_1
+    100008: W_rfel_10
+    100010: W_rfel_11
+    100012: W_rfel_12
+    100014: W_rfel_13
+    100016: W_rfel_2
+    100018: W_rfel_3
+    100020: W_rfel_4
+    100022: W_rfel_5
+    100024: W_rfel_6
+    100026: W_rfel_7
+    100028: W_rfel_8
+    100030: W_rfel_9
+    400000: Landschaft
+    400002: //RootNode
+    400004: W_rfel
+    400006: W_rfel_1
+    400008: W_rfel_10
+    400010: W_rfel_11
+    400012: W_rfel_12
+    400014: W_rfel_13
+    400016: W_rfel_2
+    400018: W_rfel_3
+    400020: W_rfel_4
+    400022: W_rfel_5
+    400024: W_rfel_6
+    400026: W_rfel_7
+    400028: W_rfel_8
+    400030: W_rfel_9
+    2300000: Landschaft
+    2300002: W_rfel
+    2300004: W_rfel_1
+    2300006: W_rfel_10
+    2300008: W_rfel_11
+    2300010: W_rfel_12
+    2300012: W_rfel_13
+    2300014: W_rfel_2
+    2300016: W_rfel_3
+    2300018: W_rfel_4
+    2300020: W_rfel_5
+    2300022: W_rfel_6
+    2300024: W_rfel_7
+    2300026: W_rfel_8
+    2300028: W_rfel_9
+    3300000: Landschaft
+    3300002: W_rfel
+    3300004: W_rfel_1
+    3300006: W_rfel_10
+    3300008: W_rfel_11
+    3300010: W_rfel_12
+    3300012: W_rfel_13
+    3300014: W_rfel_2
+    3300016: W_rfel_3
+    3300018: W_rfel_4
+    3300020: W_rfel_5
+    3300022: W_rfel_6
+    3300024: W_rfel_7
+    3300026: W_rfel_8
+    3300028: W_rfel_9
+    4300000: W_rfel_13
+    4300002: W_rfel_12
+    4300004: W_rfel_11
+    4300006: W_rfel_10
+    4300008: W_rfel_9
+    4300010: W_rfel_8
+    4300012: W_rfel_7
+    4300014: W_rfel_6
+    4300016: W_rfel_5
+    4300018: W_rfel_4
+    4300020: W_rfel_3
+    4300022: W_rfel_2
+    4300024: W_rfel_1
+    4300026: W_rfel
+    4300028: Landschaft
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .100000001
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
