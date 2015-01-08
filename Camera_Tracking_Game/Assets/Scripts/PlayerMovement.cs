@@ -21,8 +21,8 @@ public class PlayerMovement : MonoBehaviour
 
 		angle += 50f * Time.deltaTime;
 		transform.eulerAngles = new Vector3 (0, angle, 0);
-	
-	}
 
-
+	 }
 }
+
+
