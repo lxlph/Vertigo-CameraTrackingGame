@@ -1,10 +1,10 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PlayerMovement.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Menu\Scripts\LoadGame.cs">
     <Files>
-      <File FileName="Assets\Scripts\OnCollision.cs" Line="15" Column="1" />
+      <File FileName="Assets\Menu\Scripts\LoadGame.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\OnCollision.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\PlayerMovement.cs" Line="43" Column="29" />
-      <File FileName="Assets\Scripts\Kapselmoverscript.cs" Line="31" Column="5" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

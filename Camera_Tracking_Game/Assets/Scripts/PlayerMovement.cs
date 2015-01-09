@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
 	public float mspeed;
 	private bool changeEnabled = true;
 	private float rotation = 1;
+	public int playerHealth = 3;
 
 	
 	void Start () {
@@ -49,5 +50,13 @@ public class PlayerMovement : MonoBehaviour
 	
 			
 		}
+
+	void OnCollisionEnter(Collision other) {
+		playerHealth -=1;
+		if (playerHealth <= 0){
+			DestroyObject(gameObject);
+			Application.LoadLevel("Menu");
+		}
+	}
 
 }
