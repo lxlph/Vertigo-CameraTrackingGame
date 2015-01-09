@@ -6,6 +6,9 @@ public class PlayerMovement : MonoBehaviour
 	public float angle;
 	public float speed;
 	public float mspeed;
+	private bool changeEnabled = true;
+	private float rotation = 1;
+
 	
 	void Start () {
 		
@@ -19,10 +22,32 @@ public class PlayerMovement : MonoBehaviour
 		Vector3 movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
 		rigidbody.velocity = movement * mspeed;
 
-		angle += 50f * Time.deltaTime;
-		transform.eulerAngles = new Vector3 (0, angle, 0);
 
-	 }
+		if (rotation == 1) 
+		{
+			angle += +60f * Time.deltaTime;
+			transform.eulerAngles = new Vector3 (0, angle, 0);
+		}
+		else 
+		{
+			angle += -60f * Time.deltaTime;
+			transform.eulerAngles = new Vector3 (0, angle, 0);
+		}
+
+
+		if (changeEnabled && Input.GetKeyDown(KeyCode.Space)) {
+		
+			transform.eulerAngles = new Vector3 (0, angle, 0);
+			rotation *= -1;
+			changeEnabled = false;
+			StartCoroutine(ReEnable(3.0F));
+		}
+	}
+		IEnumerator ReEnable(float waitTime) {
+			yield return new WaitForSeconds(waitTime);
+			changeEnabled = true;
+	
+			
+		}
+
 }
-
-
