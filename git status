@@ -1,0 +1,133 @@
+[33mcommit d9b01b7307d788ed798a01db7d93a63acd1c3cc3[m
+Author: luxil <xuanlinh.do@haw-hamburg.de>
+Date:   Fri Jan 9 23:55:41 2015 +0100
+
+    ini2
+
+[33mcommit 6ad419d95250b46c6833ca566a5c4e93ed7cf98b[m
+Author: Thydros <hydros@hotmail.de>
+Date:   Fri Jan 9 16:51:31 2015 +0100
+
+    Steuerung
+
+[33mcommit c9199324e73a4fd000c3a03d1bd0efd948c7a55c[m
+Author: Thydros <hydros@hotmail.de>
+Date:   Fri Jan 9 14:31:08 2015 +0100
+
+    abc
+
+[33mcommit f1ffe061286a0b2210aee80b262c553d54e4dc75[m
+Author: Thydros <hydros@hotmail.de>
+Date:   Thu Jan 8 20:51:55 2015 +0100
+
+    Lichtanpassungen
+
+[33mcommit 10f1e498279552d3b1779e88cdca7694458b0fbd[m
+Author: Thydros <hydros@hotmail.de>
+Date:   Tue Jan 6 23:50:39 2015 +0100
+
+    Anpassungen Level2
+
+[33mcommit 4bfafba26497ad65b48fe5dd8ee5fcc2447de66a[m
+Author: Thydros <hydros@hotmail.de>
+Date:   Tue Jan 6 23:25:57 2015 +0100
+
+    Anpassungen Level3
+
+[33mcommit dfade8d94e0a78eb22282a527c1e5ee413914cfd[m
+Author: Thydros <hydros@hotmail.de>
+Date:   Mon Jan 5 19:04:28 2015 +0100
+
+    Anpassungen
+
+[33mcommit b506db8d7e29ef4db6984ba074d9c3f8fcb0a97e[m
+Author: Thydros <hydros@hotmail.de>
+Date:   Mon Dec 29 17:29:24 2014 +0100
+
+    Level3
+
+[33mcommit b17f916ad490a250825ba5192cc5e348caaa86e2[m
+Author: Thydros <hydros@hotmail.de>
+Date:   Sun Dec 28 17:29:21 2014 +0100
+
+    LevelX
+
+[33mcommit e56ffacd3d65c6d04452e4926746aefbe522e2c1[m
+Author: Thydros <hydros@hotmail.de>
+Date:   Sun Dec 21 13:45:41 2014 +0100
+
+    Delete photo0.png
+
+[33mcommit aa9b8e0a1178c29dcb901c3ee2f93f3d925fd0a1[m
+Author: Thydros <hydros@hotmail.de>
+Date:   Sun Dec 21 13:33:12 2014 +0100
+
+    Leveldesign
+
+[33mcommit d4b0b760fabb3b5a40ae6c285270a45bdc926363[m
+Author: Thydros <hydros@hotmail.de>
+Date:   Sun Dec 21 13:06:11 2014 +0100
+
+    Revert "Delete photo0.png"
+    
+    This reverts commit 68a9c8fcf55cdaa1fdb888813bd20cbaf3cc6dd9.
+
+[33mcommit 68a9c8fcf55cdaa1fdb888813bd20cbaf3cc6dd9[m
+Author: lxlph <xuanlinh.do@haw-hamburg.de>
+Date:   Tue Nov 11 19:50:17 2014 +0100
+
+    Delete photo0.png
+
+[33mcommit 3454770690c748bd2fb90990665423d06c5cb0a3[m
+Author: lxlph <xuanlinh.do@haw-hamburg.de>
+Date:   Tue Nov 11 19:50:06 2014 +0100
+
+    Delete photo.png
+
+[33mcommit e8cfe4833fe11de5672a458485ed4b4018d6400c[m
+Author: luxil <xuanlinh.do@haw-hamburg.de>
+Date:   Tue Nov 11 15:54:46 2014 +0100
+
+    Camera_Tracking_Game_Ordner
+
+[33mcommit 633933c2a560e6022b443d51ab09abb5caabf4b0[m
+Author: luxil <xuanlinh.do@haw-hamburg.de>
+Date:   Tue Nov 11 15:51:11 2014 +0100
+
+    project settings
+
+[33mcommit da15a4a3e27bed82bdeb3b554484548478bbb5d8[m
+Author: luxil <xuanlinh.do@haw-hamburg.de>
+Date:   Tue Nov 11 15:43:28 2014 +0100
+
+    Test
+    
+    Test
+
+[33mcommit 926bd9e41e82c0c387cbefbf18993072340e2aa2[m
+Author: luxil <xuanlinh.do@haw-hamburg.de>
+Date:   Tue Nov 11 15:41:14 2014 +0100
+
+    Revert "Test"
+    
+    This reverts commit 20698d67cfd310bc62d059f3d6d76bf8d30e3383.
+
+[33mcommit 20698d67cfd310bc62d059f3d6d76bf8d30e3383[m
+Author: luxil <xuanlinh.do@haw-hamburg.de>
+Date:   Tue Nov 11 15:27:45 2014 +0100
+
+    Test
+    
+    Test
+
+[33mcommit 2e9a73e9071c7268c87c40af20e49289442b7e1c[m
+Author: luxil <xuanlinh.do@haw-hamburg.de>
+Date:   Tue Nov 11 15:24:14 2014 +0100
+
+    first commit
+
+[33mcommit 2b7ef9b7789091c512657a0e1a4278eb80f0aeef[m
+Author: luxil <xuanlinh.do@haw-hamburg.de>
+Date:   Tue Nov 11 15:21:48 2014 +0100
+
+    :space_invader: Added .gitattributes

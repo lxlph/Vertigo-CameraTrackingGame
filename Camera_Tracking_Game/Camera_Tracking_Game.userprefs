@@ -1,10 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Menu\Scripts\LoadGame.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PlayerMovement.cs">
     <Files>
-      <File FileName="Assets\Menu\Scripts\LoadGame.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\OnCollision.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\PlayerMovement.cs" Line="43" Column="29" />
+      <File FileName="Assets\Menu\Scripts\LoadMenu.cs" Line="27" Column="34" />
+      <File FileName="Assets\Standard Assets (Mobile)\Scripts\PlayerController.cs" Line="27" Column="2" />
+      <File FileName="Assets\Scripts\PlayerMovement.cs" Line="60" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
