@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class liveBar : MonoBehaviour {
-	public Sprite damageImage;
 	public Sprite[]  liveBarSprites = new Sprite[4];
 	public int spriteIndex;
 	private float posY;
@@ -16,7 +15,6 @@ public class liveBar : MonoBehaviour {
 		posY = transform.position.y;
 		Vector3 PlayerPOS = GameObject.Find("Player").transform.transform.position;
 		transform.position = new Vector3(PlayerPOS.x + 15, posY, PlayerPOS.z + 7);
-		//transform.position = new Vector3 (0,0,0); 
 		spriteIndex = GameObject.Find ("Player").GetComponent<PlayerMovement> ().playerHealth;
 		gameObject.GetComponent<SpriteRenderer>().sprite = liveBarSprites[spriteIndex];
 
