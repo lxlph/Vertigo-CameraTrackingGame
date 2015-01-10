@@ -56,8 +56,8 @@
      <Compile Include="Assets\Scripts\Kapselmoverscript.cs" />
      <Compile Include="Assets\Scripts\OnCollision.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\liveBar.cs" />
      <Compile Include="Assets\Standard Assets (Mobile)\Scripts\PlayerController.cs" />
-     <Compile Include="Assets\Standard Assets (Mobile)\Scripts\liveBar.cs" />
      <Compile Include="Assets\Water Flow Free\Scripts\WaterFlow.cs" />
      <Compile Include="Assets\Water Flow Free\Scripts\WaterFlowDemo.cs" />
      <Compile Include="Assets\Water Flow Free\Scripts\WaterFlowOrbitCamera.cs" />
