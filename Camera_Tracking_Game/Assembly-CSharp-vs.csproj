@@ -46,21 +46,31 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\ColliderCreator.cs" />
+     <Compile Include="Assets\ColliderCreator2.cs" />
+     <Compile Include="Assets\CollisionLeft.cs" />
+     <Compile Include="Assets\CollisionRight.cs" />
+     <Compile Include="Assets\EdgeColliderDummySetter.cs" />
+     <Compile Include="Assets\FollowRotor.cs" />
+     <Compile Include="Assets\Kapselmoverscript.cs" />
      <Compile Include="Assets\Leveldesign\Fantasy Skybox FREE\Scripts\FSPlayer.cs" />
+     <Compile Include="Assets\LoadMaster.cs" />
      <Compile Include="Assets\Menu\Scripts\Camera.cs" />
      <Compile Include="Assets\Menu\Scripts\CameraController.cs" />
-     <Compile Include="Assets\Menu\Scripts\FotoLadenScript.cs" />
-     <Compile Include="Assets\Menu\Scripts\LoadGame.cs" />
      <Compile Include="Assets\Menu\Scripts\LoadMenu.cs" />
      <Compile Include="Assets\Scripts\BackRotation.cs" />
-     <Compile Include="Assets\Scripts\Kapselmoverscript.cs" />
+     <Compile Include="Assets\Scripts\Kapselmoverscript2.cs" />
      <Compile Include="Assets\Scripts\OnCollision.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\liveBar.cs" />
+     <Compile Include="Assets\Standard Assets (Mobile)\Scripts\LevelCreator.cs" />
      <Compile Include="Assets\Standard Assets (Mobile)\Scripts\PlayerController.cs" />
+     <Compile Include="Assets\Taster.cs" />
      <Compile Include="Assets\Water Flow Free\Scripts\WaterFlow.cs" />
      <Compile Include="Assets\Water Flow Free\Scripts\WaterFlowDemo.cs" />
      <Compile Include="Assets\Water Flow Free\Scripts\WaterFlowOrbitCamera.cs" />
+     <Compile Include="Assets\Winner.cs" />
+     <Compile Include="Assets\guiButtonScript.cs" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Particle Shaders\Mobile Multiply Culled.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Miscellaneous Shaders\Mobile Background.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Vertex Colored Shaders\Mobile Transparent Vertex Color.shader" />
