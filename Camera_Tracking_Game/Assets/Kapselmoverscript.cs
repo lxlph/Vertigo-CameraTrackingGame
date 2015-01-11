@@ -46,24 +46,17 @@ public class Kapselmoverscript : MonoBehaviour {
 		//enable für mobile
 
 
-		//dir.y = Input.acceleration.y;
-		//dir.x = Input.acceleration.x;
-		/*
-		dir.x = Input.GetAxis ("Horizontal");
-		dir.y = Input.GetAxis ("Vertical");
-*/
-		dir.x = 1.5f;
-		dir.y = 1.5f;
+		dir.y = Input.acceleration.y;
+		dir.x = Input.acceleration.x;
+
+
+		//dir.x = 1.5f;
+		//dir.y = 1.5f;
 
 		if (dir.sqrMagnitude > 1) {
 			dir.Normalize ();
 		}
 
-		if (logcounter% 20 == 0) {
-			Debug.Log (Input.GetAxis("Horizontal"));
-			Debug.Log (dir);
-		}
-		logcounter++;
         
         
         //dir *= Time.deltaTime;

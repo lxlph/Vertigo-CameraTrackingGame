@@ -44,7 +44,10 @@ public class guiButtonScript : MonoBehaviour {
 		}
 
 		if (GUI.Button (new Rect ((Screen.width / 4) + 400, (Screen.height / 1.6f), 300, 200), "Restart", myButtonStyle)) {
-			Application.LoadLevel("LevelCreatorScene(CopyLater)");
+			//positionsetzen, hp = 3 und gui löschen
+			GameObject.Find("Level").GetComponent<LevelCreator>().setPlayerAndTargetPosition ();
+			GameObject.Find ("Rotor_Prefab").GetComponent<Kapselmoverscript>().playerHP = 3;
+			Destroy (this);
 		}
 	}
 }

@@ -236,7 +236,7 @@ public class LevelCreator : MonoBehaviour {
 		return truePixelsProcessed;
 	}
 
-	void setPlayerAndTargetPosition() {
+	public void setPlayerAndTargetPosition() {
 		bool instantiatedPlayer = false;
 		bool instantiatedTarget = false;
 		int instantiateCountPlayer = 0;

@@ -29,9 +29,8 @@ front_facing = devices[t].isFrontFacing;
 t++;
 }
 */
-		wct = new WebCamTexture(deviceName, 400, 300, 12);
+		wct = new WebCamTexture(deviceName);
 		System.IO.Directory.CreateDirectory(speicherOrt);
-        print(Application.persistentDataPath);
 		cameraMode ();
 }
 	void OnGUI(){
@@ -39,21 +38,21 @@ t++;
 	if (!fotoGeschossen && !beimFotoLaden && !beimFotoSpeichern){
 		cameraMode ();
 		GUILayout.Label("Wähle eine Aktion aus.", guiAnweisungen);
-		Time.timeScale = 0;
+		//Time.timeScale = 0;
 		if (GUI.Button(new Rect(5, 45, 120, 45), "Foto machen")){
-			Time.timeScale = 0;
+			//Time.timeScale = 0;
 			StartCoroutine(TakePhoto());
 		}
 		if (GUI.Button(new Rect(5, 95, 120, 45), "Foto laden")){
-			Time.timeScale = 0;
+			//Time.timeScale = 0;
 			beimFotoLaden = true;
 		}
 		if (GUI.Button(new Rect(5, 145, 120, 45), "Spielen")){
-			Time.timeScale = 0;
+			//Time.timeScale = 1;
 			Application.LoadLevel("LevelCreatorScene(CopyLater)");
 		}
 		if (GUI.Button (new Rect(5, 255, 120, 45), "Zurück")){
-			Time.timeScale = 0;
+			//Time.timeScale = 0;
 			Application.LoadLevel("EmptyScene");
 		}
 	}
@@ -69,14 +68,18 @@ t++;
 		else if (GUI.Button (new Rect(5, 95, 120, 45), "Nein")){
 			cameraMode();
 		}
+		Time.timeScale = 1;
 	}
 	/**Aussuchen, welches Foto man lädt**/
 	if(beimFotoLaden){
 		GUILayout.Label("Foto auswählen.", guiAnweisungen);
-		Time.timeScale = 0;
+		//Time.timeScale = 0;
+		wct.Stop ();
 		for (int i = 0; i < 4; i++){
 			if (GUI.Button (new Rect(5, 45 + 50*i, 120, 45), i.ToString())){
 				photoNumber = i;
+				GameObject.Find("LoadMaster").GetComponent<LoadMaster> ().photoIndex = photoNumber;
+				Application.LoadLevel("LevelCreatorScene(CopyLater)");
 			}
 		}
 		if (GUI.Button (new Rect(5, 255, 120, 45), "Zurück")){
@@ -84,11 +87,12 @@ t++;
 		}
 		GUI.Button(new Rect(5 , 85 + 50*(photoNumber), 120, 5), "");
 		StartCoroutine(LoadPhoto(photoNumber));
+
 	}
 	/**Speicherplatz für geschossenes Foto auswählen**/
 	if(beimFotoSpeichern){
 		GUILayout.Label("Speicherplatz für Foto auswählen.", guiAnweisungen);
-		Time.timeScale = 0;
+		//Time.timeScale = 0;
 		for (int i = 0; i < 4; i++){
 			if (GUI.Button (new Rect(5, 45 + 50*i, 120, 45), i.ToString())){
 				photoNumber = i;
@@ -132,6 +136,8 @@ IEnumerator TakePhoto(){
 		renderer.material.mainTexture = www.texture;
 		GameObject.Find("LoadMaster").GetComponent<LoadMaster> ().photoIndex = photoNumber;
 		print ("Laedt" + photoNumber.ToString() + ".png");
+		//wct.Stop();
+
 	}
 	void savePhoto(int photoNumber){
 		WWW www = new WWW("file://" + speicherOrt + "temp" + ".png");
@@ -155,8 +161,7 @@ IEnumerator TakePhoto(){
 		}
 
 		renderer.material.mainTexture = wct;
-		/*
         wct.Play();
-		*/
+
 }
 }
