@@ -1,14 +1,10 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\ColliderCreator2.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PlayerMovement.cs">
     <Files>
-      <File FileName="Assets\Menu\Scripts\CameraController.cs" Line="120" Column="2" />
-      <File FileName="Assets\Scripts\liveBar.cs" Line="16" Column="89" />
-      <File FileName="Assets\Standard Assets\Scripts\Camera Scripts\SmoothFollow.js" Line="1" Column="1" />
-      <File FileName="Assets\Menu\Scripts\LoadMenu.cs" Line="1" Column="1" />
-      <File FileName="Assets\LoadMaster.cs" Line="9" Column="3" />
-      <File FileName="Assets\ColliderCreator2.cs" Line="16" Column="1" />
-      <File FileName="Assets\Standard Assets (Mobile)\Scripts\LevelCreator.cs" Line="82" Column="2" />
+      <File FileName="Assets\Kapselmoverscript.cs" Line="50" Column="3" />
+      <File FileName="Assets\Scripts\PlayerMovement.cs" Line="24" Column="31" />
+      <File FileName="Assets\Standard Assets (Mobile)\Scripts\LevelCreator.cs" Line="84" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

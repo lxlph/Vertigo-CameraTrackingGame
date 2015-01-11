@@ -7,6 +7,4 @@ public class LoadMaster : MonoBehaviour {
 	void Awake () {
 		DontDestroyOnLoad(this);
 	}
-	void Update() {
-	}
 }

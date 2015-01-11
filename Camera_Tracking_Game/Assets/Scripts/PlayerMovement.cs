@@ -17,10 +17,19 @@ public class PlayerMovement : MonoBehaviour
 	
 	void FixedUpdate()
 	{
-		float moveHorizontal = Input.GetAxis ("Horizontal");
-		float moveVertical = Input.GetAxis ("Vertical");
+		//float moveHorizontal = Input.GetAxis ("Horizontal");
+		//float moveVertical = Input.GetAxis ("Vertical");
 
-		Vector3 movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
+		Vector3 dir = Vector3.zero;
+		dir.x = Input.acceleration.x;
+		dir.z = Input.acceleration.y;
+
+		if (dir.sqrMagnitude > 1) {
+			dir.Normalize ();
+		}
+
+		//Vector3 movement = new Vector3 (dir.x, 0.0f, dir.z);
+		Vector3 movement = new Vector3 (dir.x, dir.z, 0.0f);
 		rigidbody.velocity = movement * mspeed;
 
 

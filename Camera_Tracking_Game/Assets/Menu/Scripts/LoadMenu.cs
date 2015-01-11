@@ -25,6 +25,9 @@ public class LoadMenu : MonoBehaviour {
 			if (GUI.Button(new Rect(280, 230, 120, 45), "Level 3")){
 				Application.LoadLevel("Level3");
 			}
+			if (GUI.Button(new Rect(280, 280, 120, 45), "Zurück")){
+				Application.LoadLevel("EmptyScene");
+			}
 		}
 	}
 }

@@ -82,12 +82,14 @@ public class LevelCreator : MonoBehaviour {
 		Debug.Log ("Hi");
 		WWW www = new WWW("file://" + "/storage/sdcard0/MobileGame/photos/" + "photo" + photoNumber.ToString() + ".png");
 		//yield return new WaitForSeconds(0);
+
 		if (renderer.material.mainTexture != null){
 			renderer.material.mainTexture = null;
 		}
 		Debug.Log ("Jaööp");
 		levelbild = www.texture;
 		Debug.Log(levelbild);
+
 	}
 
 
@@ -264,6 +266,7 @@ public class LevelCreator : MonoBehaviour {
 														
 														if (instantiateCountPlayer >= 6) {
 											GameObject.FindGameObjectWithTag("Rotor").transform.position = (new Vector3 (((j + k) - (levelbild.width / 2)) * (faktor), (((i + l) - (levelbild.height / 2)) * faktor )));
+											Debug.Log ("player gesetzt");
 											instantiatedPlayer = true;
 											instantiateCountPlayer = 0;
 

@@ -10,7 +10,9 @@ public class Kapselmoverscript : MonoBehaviour {
 	private int fingerCount = 0;
 	private bool vulnerable = true;
 	public int playerHP = 3;
+	Vector2 dir;
 
+	public int logcounter;
 
 	public GameObject guiElementPrefab;
 
@@ -23,6 +25,7 @@ public class Kapselmoverscript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
 
 		if (playerHP <= 0 && !gameLost && !(GameObject.Find("WinCube").GetComponent<Winner>().instantiated)) {
 
@@ -43,25 +46,27 @@ public class Kapselmoverscript : MonoBehaviour {
 		//enable für mobile
 
 
-		Vector2 dir = Vector2.zero;
-		dir.y = Input.acceleration.y;
-		dir.x = Input.acceleration.x;
-
-
-
+		//dir.y = Input.acceleration.y;
+		//dir.x = Input.acceleration.x;
 		/*
-	 	Vector3 dir = Vector3.zero;
 		dir.x = Input.GetAxis ("Horizontal");
 		dir.y = Input.GetAxis ("Vertical");
-		*/
-
+*/
+		dir.x = 1.5f;
+		dir.y = 1.5f;
 
 		if (dir.sqrMagnitude > 1) {
 			dir.Normalize ();
 		}
 
-
-		//dir *= Time.deltaTime;
+		if (logcounter% 20 == 0) {
+			Debug.Log (Input.GetAxis("Horizontal"));
+			Debug.Log (dir);
+		}
+		logcounter++;
+        
+        
+        //dir *= Time.deltaTime;
 		//transform.Translate(dir * moveSpeed, Space.World);
 
 		if (!gameLost && !(GameObject.Find("WinCube").GetComponent<Winner>().instantiated)) {
@@ -88,7 +93,32 @@ public class Kapselmoverscript : MonoBehaviour {
 
 	
 	}
+	/*
+	void OnGUI() {
+		if(GUI.Button(new Rect(10, 10, 200, 200), "+x")) {
+			dir.x += 100.0f;
+			Debug.Log ("asf");
+		}
 
+		if(GUI.Button(new Rect(250, 10, 200, 200), "+y")) {
+			dir.y += 100.0f;
+			Debug.Log ("asf");
+
+		}
+
+		if(GUI.Button(new Rect(10, 250, 200, 200), "-x")) {
+			dir.x -= 100.0f;
+			Debug.Log ("asf");
+
+		}
+		
+		if(GUI.Button(new Rect(250, 250, 200, 200), "-y")) {
+			dir.y -= 100.0f;
+			Debug.Log ("asf");
+
+		}
+	}
+*/
 	void OnCollisionEnter2D (Collision2D other) {
 	
 

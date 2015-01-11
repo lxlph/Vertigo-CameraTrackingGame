@@ -13,6 +13,7 @@ public class ColliderCreator2 : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
+		Debug.Log ("collider");
 		photoNumber = GameObject.Find ("LoadMaster").GetComponent<LoadMaster> ().photoIndex;
 		LoadPhoto(photoNumber);
 		createCollider (levelbild);
