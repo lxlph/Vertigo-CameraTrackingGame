@@ -6,6 +6,7 @@ public class CameraController : MonoBehaviour {
 	public string deviceName;
 	WebCamTexture wct;
 	public Texture2D snap;
+	public GUISkin myGuiBlank;
 	int indexPhoto = 0;
 	int photoNumber = 0;
 	bool fotoGeschossen = false;
@@ -13,6 +14,17 @@ public class CameraController : MonoBehaviour {
 	bool beimFotoSpeichern = false;
 	bool fotoSpeicherNummerAusgewaehlt = false;
 	public GUIStyle guiAnweisungen;
+	public Texture TakeP = null;
+	public Texture LoadP = null;
+	public Texture Play = null;
+	public Texture Back = null;
+	public Texture Ja = null;
+	public Texture Nein = null;
+	public Texture[] phases;
+	public Texture ph0 = null;
+	public Texture ph1 = null;
+	public Texture ph2 = null;
+	public Texture ph3 = null;
 	
 	bool actionPerformed = false;
 	//bool front_facing = false;
@@ -34,38 +46,40 @@ t++;
 		cameraMode ();
 }
 	void OnGUI(){
+	GUI.backgroundColor = Color.clear;
 	/**Kameramodus**/
+	GUI.skin = myGuiBlank;
 	if (!fotoGeschossen && !beimFotoLaden && !beimFotoSpeichern){
 		cameraMode ();
-		GUILayout.Label("Wähle eine Aktion aus.", guiAnweisungen);
 		//Time.timeScale = 0;
-		if (GUI.Button(new Rect(5, 45, 120, 45), "Foto machen")){
+		if (GUI.Button(new Rect(Screen.width / 150, Screen.height / 13, TakeP.width / 2, TakeP.height / 2), TakeP)){
 			//Time.timeScale = 0;
 			StartCoroutine(TakePhoto());
 		}
-		if (GUI.Button(new Rect(5, 95, 120, 45), "Foto laden")){
+		if (GUI.Button(new Rect(Screen.width / 6, Screen.height / 13, LoadP.width / 2, LoadP.height / 2), LoadP)){
 			//Time.timeScale = 0;
 			beimFotoLaden = true;
 		}
-		if (GUI.Button(new Rect(5, 145, 120, 45), "Spielen")){
+		if (GUI.Button(new Rect(Screen.width / 3, Screen.height / 13, Play.width / 2, Play.height / 2), Play)){
 			//Time.timeScale = 1;
 			Application.LoadLevel("LevelCreatorScene(CopyLater)");
 		}
-		if (GUI.Button (new Rect(5, 255, 120, 45), "Zurück")){
+		if (GUI.Button (new Rect(Screen.width / 2, Screen.height / 13, Back.width / 2, Back.height / 2), Back)){
 			//Time.timeScale = 0;
-			Application.LoadLevel("EmptyScene");
+			wct.Stop();
+			Application.LoadLevel("Menu");
 		}
 	}
 	/**Soll das Foto gespeichert werden?**/
 	if (fotoGeschossen){
 		GUILayout.Label("Foto speichern?", guiAnweisungen);
 		Time.timeScale = 0;
-		if(GUI.Button (new Rect(5, 45, 120, 45), "Ja")){
+		if (GUI.Button (new Rect(Screen.width / 150, Screen.height / 13, Ja.width / 2, Ja.height / 2), Ja)){
 			beimFotoSpeichern = true;
 			fotoGeschossen = false;
 			print ("Ja");
 		}
-		else if (GUI.Button (new Rect(5, 95, 120, 45), "Nein")){
+		else if (GUI.Button (new Rect(Screen.width / 6, Screen.height / 13, Nein.width / 2, Nein.height / 2), Nein)){
 			cameraMode();
 		}
 		Time.timeScale = 1;
@@ -75,17 +89,32 @@ t++;
 		GUILayout.Label("Foto auswählen.", guiAnweisungen);
 		//Time.timeScale = 0;
 		wct.Stop ();
-		for (int i = 0; i < 4; i++){
-			if (GUI.Button (new Rect(5, 45 + 50*i, 120, 45), i.ToString())){
-				photoNumber = i;
-				GameObject.Find("LoadMaster").GetComponent<LoadMaster> ().photoIndex = photoNumber;
-				Application.LoadLevel("LevelCreatorScene(CopyLater)");
-			}
+		if (GUI.Button (new Rect(10, 45, 200, 66), ph0)){
+			photoNumber = 0;
+			GameObject.Find("LoadMaster").GetComponent<LoadMaster> ().photoIndex = photoNumber;
+			Application.LoadLevel("LevelCreatorScene(CopyLater)");
 		}
-		if (GUI.Button (new Rect(5, 255, 120, 45), "Zurück")){
+		if (GUI.Button (new Rect(215, 45, 200, 66), ph1)){
+			photoNumber = 1;
+			GameObject.Find("LoadMaster").GetComponent<LoadMaster> ().photoIndex = photoNumber;
+			Application.LoadLevel("LevelCreatorScene(CopyLater)");
+		}
+		if (GUI.Button (new Rect(420, 45, 200, 66), ph2)){	
+			photoNumber = 2;
+			GameObject.Find("LoadMaster").GetComponent<LoadMaster> ().photoIndex = photoNumber;
+			Application.LoadLevel("LevelCreatorScene(CopyLater)");
+		}
+		if (GUI.Button (new Rect(625, 45, 200, 66), ph3)){
+			photoNumber = 3;
+			GameObject.Find("LoadMaster").GetComponent<LoadMaster> ().photoIndex = photoNumber;
+			Application.LoadLevel("LevelCreatorScene(CopyLater)");
+		}
+
+
+		if (GUI.Button (new Rect(1000, 45, 200, 66), Back)){
 			cameraMode ();
 		}
-		GUI.Button(new Rect(5 , 85 + 50*(photoNumber), 120, 5), "");
+		GUI.Button(new Rect(15 , 85 + 50*(photoNumber), 120, 5), "");
 		StartCoroutine(LoadPhoto(photoNumber));
 
 	}
@@ -93,13 +122,26 @@ t++;
 	if(beimFotoSpeichern){
 		GUILayout.Label("Speicherplatz für Foto auswählen.", guiAnweisungen);
 		//Time.timeScale = 0;
-		for (int i = 0; i < 4; i++){
-			if (GUI.Button (new Rect(5, 45 + 50*i, 120, 45), i.ToString())){
-				photoNumber = i;
-                fotoSpeicherNummerAusgewaehlt = true;
-            }
-        }
-        if (GUI.Button (new Rect(5, 255, 120, 45), "Zurück")){
+			if (GUI.Button (new Rect(10, 45, 200, 66), ph0)){
+				photoNumber = 0;
+				fotoSpeicherNummerAusgewaehlt = true;
+			}
+			if (GUI.Button (new Rect(215, 45, 200, 66), ph1)){
+				photoNumber = 1;
+				fotoSpeicherNummerAusgewaehlt = true;
+			}
+			if (GUI.Button (new Rect(420, 45, 200, 66), ph2)){	
+				photoNumber = 2;
+				fotoSpeicherNummerAusgewaehlt = true;
+			}
+			if (GUI.Button (new Rect(625, 45, 200, 66), ph3)){
+				photoNumber = 3;
+				fotoSpeicherNummerAusgewaehlt = true;
+			}
+
+
+
+		if (GUI.Button (new Rect(490, 45, 200, 66), Back)){
             cameraMode ();
         }
         GUI.Button(new Rect(5 , 85 + 50*(photoNumber), 120, 5), "");

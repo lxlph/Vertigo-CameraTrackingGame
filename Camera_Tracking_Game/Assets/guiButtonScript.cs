@@ -47,6 +47,8 @@ public class guiButtonScript : MonoBehaviour {
 			//positionsetzen, hp = 3 und gui löschen
 			GameObject.Find("Level").GetComponent<LevelCreator>().setPlayerAndTargetPosition ();
 			GameObject.Find ("Rotor_Prefab").GetComponent<Kapselmoverscript>().playerHP = 3;
+			GameObject.Find("Rotor_Prefab").GetComponent<Kapselmoverscript>().gameLost = false;
+			GameObject.Find("WinCube").GetComponent<Winner>().instantiated = false;
 			Destroy (this);
 		}
 	}

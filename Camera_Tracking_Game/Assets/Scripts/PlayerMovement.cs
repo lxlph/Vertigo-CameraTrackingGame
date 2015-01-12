@@ -9,10 +9,11 @@ public class PlayerMovement : MonoBehaviour
 	private bool changeEnabled = true;
 	private float rotation = 1;
 	public int playerHealth = 3;
-
+	public bool vulnerable = true;
+	public int fingerCount;
 	
 	void Start () {
-		
+		playerHealth = 3;
 	}
 	
 	void FixedUpdate()
@@ -29,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
 		}
 
 		//Vector3 movement = new Vector3 (dir.x, 0.0f, dir.z);
-		Vector3 movement = new Vector3 (dir.x, dir.z, 0.0f);
+		Vector3 movement = new Vector3 (dir.x, 0.0f, dir.z);
 		rigidbody.velocity = movement * mspeed;
 
 
@@ -52,20 +53,45 @@ public class PlayerMovement : MonoBehaviour
 			changeEnabled = false;
 			StartCoroutine(ReEnable(3.0F));
 		}
-	}
-		IEnumerator ReEnable(float waitTime) {
-			yield return new WaitForSeconds(waitTime);
-			changeEnabled = true;
-	
-			
+
+		//nicht geil gemacht, aber funktioniert
+		foreach (Touch touch in Input.touches) {
+			fingerCount++;
+		}
+		
+		//drehrichtung ändern
+		if (changeEnabled && fingerCount >= 1) {
+			rotation *= -1;
+			changeEnabled = false;
+			StartCoroutine(ReEnable(5.0F));
 		}
 
+	}
+
 	void OnCollisionEnter(Collision other) {
-		playerHealth -=1;
+		
+		if (vulnerable) {
+			//playsound
+			//	Debug.Log ("Autsch!");
+			playerHealth -=1;
+			vulnerable = false;
+			StartCoroutine(Invulnerable(0.5F));
+			
+		}
 		if (playerHealth <= 0){
-			DestroyObject(gameObject);
 			Application.LoadLevel("Menu");
 		}
+	}
+
+	IEnumerator Invulnerable(float waitTime) {
+		yield return new WaitForSeconds(waitTime);
+		vulnerable = true;
+	}
+
+	IEnumerator ReEnable(float waitTime) {
+		yield return new WaitForSeconds(waitTime);
+		changeEnabled = true;
+		fingerCount = 0;
 	}
 
 }
