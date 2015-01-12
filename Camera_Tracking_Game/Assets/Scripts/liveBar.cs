@@ -15,10 +15,5 @@ public class liveBar : MonoBehaviour {
 		transform.position = new Vector3(PlayerPOS.x + 11, posY, PlayerPOS.z + 7);
 		spriteIndex = GameObject.Find ("Player").GetComponent<PlayerMovement> ().playerHealth;
 		gameObject.GetComponent<SpriteRenderer>().sprite = liveBarSprites[spriteIndex];
-		/*
-if (GameObject.Find ("Player").GetComponent<PlayerController> ().playerHealth==3){
-gameObject.GetComponent<SpriteRenderer>().sprite = liveBarSprites[3];
-}
-*/
 	}
 }
