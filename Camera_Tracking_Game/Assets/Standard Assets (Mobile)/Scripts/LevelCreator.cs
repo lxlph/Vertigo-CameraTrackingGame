@@ -15,16 +15,11 @@ public class LevelCreator : MonoBehaviour {
 
 
 	void Start () {
-		Debug.Log ("0");
 
-		photoNumber = GameObject.Find ("LoadMaster").GetComponent<LoadMaster> ().photoIndex;
-		Debug.Log ("1");
-
+		//photoNumber = GameObject.Find ("LoadMaster").GetComponent<LoadMaster> ().photoIndex;
+		photoNumber = CameraController.photoNumber;
 		LoadPhoto(photoNumber);
-		Debug.Log ("2");
-
 		Screen.orientation = ScreenOrientation.LandscapeLeft;
-
 		mesh = GetComponent<MeshFilter> ().mesh;
 
 
@@ -75,7 +70,6 @@ public class LevelCreator : MonoBehaviour {
 			appliedPicture.Apply ();
 
 		}
-
 
 
 	void LoadPhoto(int photoNumber){

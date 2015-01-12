@@ -14,7 +14,7 @@ public class ColliderCreator2 : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		Debug.Log ("collider");
-		photoNumber = GameObject.Find ("LoadMaster").GetComponent<LoadMaster> ().photoIndex;
+		photoNumber = CameraController.photoNumber;
 		LoadPhoto(photoNumber);
 		createCollider (levelbild);
 	}

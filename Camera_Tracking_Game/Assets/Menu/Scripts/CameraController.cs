@@ -8,7 +8,7 @@ public class CameraController : MonoBehaviour {
 	public Texture2D snap;
 	public GUISkin myGuiBlank;
 	int indexPhoto = 0;
-	int photoNumber = 0;
+	public static int photoNumber = 0;
 	bool fotoGeschossen = false;
 	bool beimFotoLaden = false;
 	bool beimFotoSpeichern = false;
@@ -60,13 +60,17 @@ t++;
 			//Time.timeScale = 0;
 			beimFotoLaden = true;
 		}
+			/*
 		if (GUI.Button(new Rect(Screen.width / 3, Screen.height / 13, Play.width / 2, Play.height / 2), Play)){
 			//Time.timeScale = 1;
+			Destroy(wct);
 			Application.LoadLevel("LevelCreatorScene(CopyLater)");
 		}
+		*/
 		if (GUI.Button (new Rect(Screen.width / 2, Screen.height / 13, Back.width / 2, Back.height / 2), Back)){
 			//Time.timeScale = 0;
-			wct.Stop();
+			//wct.Stop();
+			//Destroy(wct);
 			Application.LoadLevel("Menu");
 		}
 	}
@@ -91,27 +95,35 @@ t++;
 		wct.Stop ();
 		if (GUI.Button (new Rect(10, 45, 200, 66), ph0)){
 			photoNumber = 0;
-			GameObject.Find("LoadMaster").GetComponent<LoadMaster> ().photoIndex = photoNumber;
-			Application.LoadLevel("LevelCreatorScene(CopyLater)");
+			LoadPhoto(photoNumber);
+			//Application.LoadLevel("LevelCreatorScene(CopyLater)");
 		}
 		if (GUI.Button (new Rect(215, 45, 200, 66), ph1)){
 			photoNumber = 1;
-			GameObject.Find("LoadMaster").GetComponent<LoadMaster> ().photoIndex = photoNumber;
-			Application.LoadLevel("LevelCreatorScene(CopyLater)");
+			LoadPhoto(photoNumber);
+			//Destroy(wct);
+			//Application.LoadLevel("LevelCreatorScene(CopyLater)");
 		}
 		if (GUI.Button (new Rect(420, 45, 200, 66), ph2)){	
 			photoNumber = 2;
-			GameObject.Find("LoadMaster").GetComponent<LoadMaster> ().photoIndex = photoNumber;
-			Application.LoadLevel("LevelCreatorScene(CopyLater)");
+			LoadPhoto(photoNumber);
+			//Destroy(wct);
+			//Application.LoadLevel("LevelCreatorScene(CopyLater)");
 		}
 		if (GUI.Button (new Rect(625, 45, 200, 66), ph3)){
 			photoNumber = 3;
-			GameObject.Find("LoadMaster").GetComponent<LoadMaster> ().photoIndex = photoNumber;
+			LoadPhoto(photoNumber);
+			//Destroy(wct);
+			//Application.LoadLevel("LevelCreatorScene(CopyLater)");
+		}
+
+		if (GUI.Button(new Rect(830, 45, Play.width / 2, Play.height / 2), Play)){
+			//Time.timeScale = 1;
 			Application.LoadLevel("LevelCreatorScene(CopyLater)");
 		}
 
 
-		if (GUI.Button (new Rect(1000, 45, 200, 66), Back)){
+		if (GUI.Button (new Rect(1035, 45, 200, 66), Back)){
 			cameraMode ();
 		}
 		GUI.Button(new Rect(15 , 85 + 50*(photoNumber), 120, 5), "");
@@ -176,7 +188,6 @@ IEnumerator TakePhoto(){
 			renderer.material.mainTexture = null;
 		}
 		renderer.material.mainTexture = www.texture;
-		GameObject.Find("LoadMaster").GetComponent<LoadMaster> ().photoIndex = photoNumber;
 		print ("Laedt" + photoNumber.ToString() + ".png");
 		//wct.Stop();
 
