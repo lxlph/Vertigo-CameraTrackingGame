@@ -57,21 +57,33 @@ t++;
 	if (!fotoGeschossen && !beimFotoLaden && !beimFotoSpeichern){
 		cameraMode ();
 		//Time.timeScale = 0;
-		if (GUI.Button(new Rect(Screen.width / 150, Screen.height / 13, TakeP.width / 2, TakeP.height / 2), TakeP)){
+		if (GUI.Button(new Rect(Screen.width / 150, 45, TakeP.width / 2, TakeP.height / 2), TakeP)){
 			//Time.timeScale = 0;
 			StartCoroutine(TakePhoto());
 		}
-		if (GUI.Button(new Rect(Screen.width / 6, Screen.height / 13, LoadP.width / 2, LoadP.height / 2), LoadP)){
+		if (GUI.Button(new Rect(Screen.width / 6, 45, LoadP.width / 2, LoadP.height / 2), LoadP)){
 			//Time.timeScale = 0;
 			beimFotoLaden = true;
 		}
 
-		if (GUI.Button (new Rect(Screen.width / 2, Screen.height / 13, Back.width / 2, Back.height / 2), Back)){
-			wct.Stop ();
-			Wait (2);
-			
-			
-			Application.LoadLevel("Menu");
+			if (GUI.Button (new Rect(980, 45, 200, 66), Back)){
+				int zustand = 1;
+				if (zustand == 1) {
+					zustand++;
+				}
+
+				if (zustand ==2) {
+					wct.Stop ();
+
+					Destroy (wct);
+					//renderer.material.mainTexture = null;
+
+				//	LoadPhoto(0);
+					//					Application.LoadLevel("LevelCreatorScene(CopyLater)");
+					Application.LoadLevel("Menu");
+
+				
+				}
 		}
 	}
 	/**Soll das Foto gespeichert werden?**/

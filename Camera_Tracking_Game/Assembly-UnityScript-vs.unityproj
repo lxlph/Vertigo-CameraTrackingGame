@@ -74,7 +74,7 @@
      <None Include="Assets\Leveldesign\prototype_textures\readme.txt" />
      <None Include="Assets\Water Flow Free\!Readme.txt" />
  <Reference Include="Assembly-UnityScript-firstpass">
- <HintPath>/Users/TrappaKeeper/Dropbox/Präsi & Neue Version mit Sound/Neue Version mit Sound/Mobile (1)/Camera_Tracking_Game/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+ <HintPath>/Users/TrappaKeeper/Mobile/Camera_Tracking_Game/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

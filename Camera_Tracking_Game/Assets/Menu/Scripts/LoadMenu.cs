@@ -32,7 +32,6 @@ public class LoadMenu : MonoBehaviour {
 				
 				GUI.skin = myGuiBlank;
 			if (GUI.Button(new Rect(Screen.width / 2 -200, Screen.height / 2 +160 , NormalMode.width, NormalMode.height), CameraMode)){
-				mainMenu = false;
 				Application.LoadLevel("Camera");
 			}
 			if (GUI.Button(new Rect(Screen.width / 2 -200, Screen.height / 2 -10, CameraMode.width, CameraMode.height), NormalMode)){

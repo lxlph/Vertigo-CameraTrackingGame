@@ -54,6 +54,7 @@
      <Compile Include="Assets\FollowRotor.cs" />
      <Compile Include="Assets\Kapselmoverscript.cs" />
      <Compile Include="Assets\Leveldesign\Fantasy Skybox FREE\Scripts\FSPlayer.cs" />
+     <Compile Include="Assets\LivebarScript.cs" />
      <Compile Include="Assets\LoadMaster.cs" />
      <Compile Include="Assets\Menu\Scripts\Camera.cs" />
      <Compile Include="Assets\Menu\Scripts\CameraController.cs" />
@@ -88,7 +89,7 @@
      <None Include="Assets\Leveldesign\prototype_textures\readme.txt" />
      <None Include="Assets\Water Flow Free\!Readme.txt" />
  <Reference Include="Assembly-UnityScript-firstpass">
- <HintPath>/Users/TrappaKeeper/Dropbox/Präsi & Neue Version mit Sound/Neue Version mit Sound/Mobile (1)/Camera_Tracking_Game/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+ <HintPath>/Users/TrappaKeeper/Mobile/Camera_Tracking_Game/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
