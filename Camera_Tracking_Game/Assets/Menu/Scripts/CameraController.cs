@@ -26,11 +26,11 @@ public class CameraController : MonoBehaviour {
 	public Texture ph2 = null;
 	public Texture ph3 = null;
 	
-	bool actionPerformed = false;
 	//bool front_facing = false;
 	//int t = 0;
 	private String speicherOrt = "/storage/sdcard0/MobileGame/photos/";
 	void Start(){
+
 		Screen.orientation = ScreenOrientation.LandscapeLeft;
 		WebCamDevice[] devices = WebCamTexture.devices;
 		deviceName = devices[0].name;
@@ -45,6 +45,11 @@ t++;
 		System.IO.Directory.CreateDirectory(speicherOrt);
 		cameraMode ();
 }
+
+	IEnumerator Wait(float waitTime) {
+		yield return new WaitForSeconds(waitTime);
+	}
+
 	void OnGUI(){
 	GUI.backgroundColor = Color.clear;
 	/**Kameramodus**/
@@ -62,6 +67,10 @@ t++;
 		}
 
 		if (GUI.Button (new Rect(Screen.width / 2, Screen.height / 13, Back.width / 2, Back.height / 2), Back)){
+			wct.Stop ();
+			Wait (2);
+			
+			
 			Application.LoadLevel("Menu");
 		}
 	}
@@ -81,7 +90,7 @@ t++;
 	}
 	/**Aussuchen, welches Foto man lädt**/
 	if(beimFotoLaden){
-		GUILayout.Label("Foto auswählen.", guiAnweisungen);
+		//GUILayout.Label("Foto auswählen.", guiAnweisungen);
 		//Time.timeScale = 0;
 		wct.Stop ();
 		if (GUI.Button (new Rect(10, 45, ph0.width, 66), ph0)){
@@ -173,7 +182,6 @@ IEnumerator TakePhoto(){
 		}
 		renderer.material.mainTexture = www.texture;
 		print ("Laedt" + photoNumber.ToString() + ".png");
-		//wct.Stop();
 
 	}
 	void savePhoto(int photoNumber){
@@ -196,6 +204,8 @@ IEnumerator TakePhoto(){
 		if (renderer.material.mainTexture != null){
 			renderer.material.mainTexture = null;
 		}
+
+
 
 		renderer.material.mainTexture = wct;
         wct.Play();

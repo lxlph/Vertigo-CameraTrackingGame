@@ -1,13 +1,14 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Kapselmoverscript.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayerMovement.cs">
     <Files>
-      <File FileName="Assets\Scripts\liveBarLC.cs" Line="13" Column="52" />
-      <File FileName="Assets\Menu\Scripts\CameraController.cs" Line="104" Column="45" />
-      <File FileName="Assets\Kapselmoverscript.cs" Line="49" Column="3" />
-      <File FileName="Assets\Standard Assets (Mobile)\Scripts\LevelCreator.cs" Line="1" Column="1" />
-      <File FileName="Assets\ColliderCreator2.cs" Line="1" Column="1" />
-      <File FileName="Assets\Menu\Scripts\LoadMenu.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/PlayerMovement.cs" Line="40" Column="16" />
+      <File FileName="Assets/ColliderCreator2.cs" Line="1" Column="1" />
+      <File FileName="Assets/Standard Assets (Mobile)/Scripts/LevelCreator.cs" Line="1" Column="1" />
+      <File FileName="Assets/Menu/Scripts/CameraController.cs" Line="1" Column="1" />
+      <File FileName="Assets/guiButtonScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/Menu/Scripts/LoadMenu.cs" Line="57" Column="6" />
+      <File FileName="Assets/Kapselmoverscript.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -2,7 +2,11 @@ fileFormatVersion: 2
 guid: 9d47da297fde548a3918818960300ac6
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - lose: {fileID: 2800000, guid: c2b97748a2f4d428f9f61fd5179395da, type: 3}
+  - win: {fileID: 2800000, guid: 57fce5e9d8297460f9c452062d7b14f1, type: 3}
+  - retry: {fileID: 2800000, guid: ccb73b1f684f6453094c8247a090ab7d, type: 3}
+  - menu: {fileID: 2800000, guid: 5e5d4923c20f84a409dce8c497892175, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

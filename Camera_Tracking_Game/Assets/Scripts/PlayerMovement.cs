@@ -11,7 +11,8 @@ public class PlayerMovement : MonoBehaviour
 	public int playerHealth = 3;
 	public bool vulnerable = true;
 	public int fingerCount;
-	
+	public AudioClip getHit;
+
 	void Start () {
 		playerHealth = 3;
 	}
@@ -36,12 +37,12 @@ public class PlayerMovement : MonoBehaviour
 
 		if (rotation == 1) 
 		{
-			angle += +60f * Time.deltaTime;
+			angle += +40f * Time.deltaTime;
 			transform.eulerAngles = new Vector3 (0, angle, 0);
 		}
 		else 
 		{
-			angle += -60f * Time.deltaTime;
+			angle += -40f * Time.deltaTime;
 			transform.eulerAngles = new Vector3 (0, angle, 0);
 		}
 
@@ -73,8 +74,13 @@ public class PlayerMovement : MonoBehaviour
 		if (vulnerable) {
 			//playsound
 			//	Debug.Log ("Autsch!");
+
+
 			playerHealth -=1;
 			vulnerable = false;
+			audio.PlayOneShot(getHit);
+			angle = angle - (30 * rotation);
+
 			StartCoroutine(Invulnerable(0.5F));
 			
 		}

@@ -5,7 +5,7 @@ public class ColliderCreator2 : MonoBehaviour {
 
 
 	public GameObject colliderDummy;
-	public Texture2D levelbild = null;
+	public Texture2D levelbild;
 	public int instantiatecounter;
 	public int instantiatecounter2;
 	public int photoNumber;
@@ -13,7 +13,6 @@ public class ColliderCreator2 : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		Debug.Log ("collider");
 		photoNumber = CameraController.photoNumber;
 		LoadPhoto(photoNumber);
 		createCollider (levelbild);

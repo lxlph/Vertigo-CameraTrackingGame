@@ -45,7 +45,6 @@ public class LevelCreator : MonoBehaviour {
 		drawLines(Color.black);
 
 
-		//achtung -> zurückändern auf appliedPicture
 		renderer.material.mainTexture = levelbild;
 		setPlayerAndTargetPosition ();
 	}
@@ -73,17 +72,13 @@ public class LevelCreator : MonoBehaviour {
 
 
 	void LoadPhoto(int photoNumber){
-		Debug.Log ("Hi");
 		WWW www = new WWW("file://" + "/storage/sdcard0/MobileGame/photos/" + "photo" + photoNumber.ToString() + ".png");
 		//yield return new WaitForSeconds(0);
 
 		if (renderer.material.mainTexture != null){
 			renderer.material.mainTexture = null;
 		}
-		Debug.Log ("Jaööp");
-		levelbild = www.texture;
-		Debug.Log(levelbild);
-
+		levelbild = www.texture; 
 	}
 
 
@@ -103,8 +98,9 @@ public class LevelCreator : MonoBehaviour {
 				//am anfang wird der wert auf true gesetzt wird, um später die if-abfrage in der schleife zu vereinfachen
 				truePixels[j, i] = true;
 
+			
 				//wenn pixel selbst zu hell ist, wird es false gesetzt
-				if (levelbild.GetPixel (j, i).r > 0.8f || levelbild.GetPixel (j, i).b > 0.8f || levelbild.GetPixel (j, i).g > 0.8f){
+				if (levelbild.GetPixel (j, i).r > 0.33f || levelbild.GetPixel (j, i).b > 0.33f || levelbild.GetPixel (j, i).g > 0.33f){
 					truePixels[j, i] = false;
 				}
 
@@ -128,8 +124,8 @@ public class LevelCreator : MonoBehaviour {
 									if (levelbild.GetPixel (j + k, i + l).r > 0.5f && levelbild.GetPixel (j + k, i + l).b > 0.5f && levelbild.GetPixel (j + k, i + l).g > 0.5f) {
 										umgebendePixelWeiss++;
 									}
-
-									if (levelbild.GetPixel (j + k, i + l).r < 0.5f && levelbild.GetPixel (j + k, i + l).b > 0.4f && levelbild.GetPixel (j + k, i + l).g < 0.5f) {
+									//HIER EVENTUELL EINSTELLEN
+									if (levelbild.GetPixel (j + k, i + l).r < 0.5f && levelbild.GetPixel (j + k, i + l).b > 0.4f && levelbild.GetPixel (j + k, i + l).g < 0.8f) {
 										umgebendePixelBlau++;
 									}
 
@@ -163,12 +159,12 @@ public class LevelCreator : MonoBehaviour {
 
 
 
-
+		
 			}
 		
 		}
 
-
+	
 		//Alle Werte auf False setzen, die nicht mindestens einen False-nachbarn haben:
 		for (int i = 0; i < levelbild.height; i++) {
 			
@@ -227,10 +223,13 @@ public class LevelCreator : MonoBehaviour {
 				}
 			}
 		}
+
+
 		return truePixelsProcessed;
 	}
 
 	public void setPlayerAndTargetPosition() {
+		//Debug.Log ("test1");
 		bool instantiatedPlayer = false;
 		bool instantiatedTarget = false;
 		int instantiateCountPlayer = 0;
@@ -242,7 +241,7 @@ public class LevelCreator : MonoBehaviour {
 				for (int j = 0; j < levelbild.width; j++) {
 						//fängt unten links an! x = x y = y
 								
-								if ((!instantiatedPlayer) && levelbild.GetPixel (j, i).r > 0.6f && levelbild.GetPixel (j, i).b < 0.5f && levelbild.GetPixel (j, i).g < 0.5f) {
+								if ((!instantiatedPlayer) && levelbild.GetPixel (j, i).r > 0.6f && levelbild.GetPixel (j, i).b < 0.45f && levelbild.GetPixel (j, i).g < 0.45f) {
 									
 						
 									for (int k = -3; k <= 3; k++) {
@@ -259,8 +258,9 @@ public class LevelCreator : MonoBehaviour {
 														instantiateCountPlayer++;
 														
 														if (instantiateCountPlayer >= 6) {
+										//	Debug.Log ("test");
+
 											GameObject.FindGameObjectWithTag("Rotor").transform.position = (new Vector3 (((j + k) - (levelbild.width / 2)) * (faktor), (((i + l) - (levelbild.height / 2)) * faktor )));
-											Debug.Log ("player gesetzt");
 											instantiatedPlayer = true;
 											instantiateCountPlayer = 0;
 
@@ -281,10 +281,8 @@ public class LevelCreator : MonoBehaviour {
 								
 				
 								}
-								
-				if ((!instantiatedTarget) && levelbild.GetPixel (j, i).r < 0.5f && levelbild.GetPixel (j, i).b > 0.5f && levelbild.GetPixel (j, i).g < 0.5f) {
-		
-					
+
+				if ((!instantiatedTarget) && levelbild.GetPixel (j, i).r < 0.5f && levelbild.GetPixel (j, i).b > 0.5f && levelbild.GetPixel (j, i).g < 0.95f) {
 					for (int k = -3; k <= 3; k++) {
 										
 										for (int l = -3; l <= 3; l++) {
@@ -295,10 +293,10 @@ public class LevelCreator : MonoBehaviour {
 												//damit für die randpixel nicht alle umgebenden pixel auch noch gecheckt werden (out of bounds)
 												if ((j + k) >= 0 && (j + k) < levelbild.width && (i + l) >= 0 && (i + l) < levelbild.height) {
 													
-													if (levelbild.GetPixel (j + k, i + l).r < 0.4f && levelbild.GetPixel (j + k, i + l).b > 0.4f && levelbild.GetPixel (j + k, i + l).g < 0.4f) {
+									if (levelbild.GetPixel (j + k, i + l).r < 0.4f && levelbild.GetPixel (j + k, i + l).b > 0.4f && levelbild.GetPixel (j + k, i + l).g < 0.95f) {
 														instantiateCountTarget++;
 
-														if (instantiateCountTarget >= 6) {
+										if (instantiateCountTarget >= 6) {
 															GameObject.FindGameObjectWithTag("Target").transform.position = (new Vector3 (((j + k) - (levelbild.width / 2)) * (faktor), (((i + l) - (levelbild.height / 2)) * faktor )));
 															instantiatedTarget = true;
 															instantiateCountTarget = 0;
@@ -311,7 +309,6 @@ public class LevelCreator : MonoBehaviour {
 											}
 											
 										}
-						//Debug.Log("Target: " + instantiateCountTarget);
 						instantiateCountTarget = 0;
 
 										
@@ -326,7 +323,8 @@ public class LevelCreator : MonoBehaviour {
 
 								if (instantiatedPlayer && instantiatedTarget) {
 									break;
-								}	
+								}
+
 						}
 		}
 	}

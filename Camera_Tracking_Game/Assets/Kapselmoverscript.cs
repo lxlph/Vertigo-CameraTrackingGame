@@ -8,9 +8,12 @@ public class Kapselmoverscript : MonoBehaviour {
 	public float moveSpeed = 80.0f;
 	private bool changeEnabled = true;
 	private int fingerCount = 0;
-	private bool vulnerable = true;
+	public bool vulnerable = true;
 	public int playerHP = 3;
-	Vector2 dir;
+	public Vector2 dir;
+
+	public AudioClip dotzSound;
+	public AudioClip sadTrombone;
 
 	public int logcounter;
 
@@ -28,7 +31,7 @@ public class Kapselmoverscript : MonoBehaviour {
 
 
 		if (playerHP <= 0 && !gameLost && !(GameObject.Find("WinCube").GetComponent<Winner>().instantiated)) {
-
+			audio.PlayOneShot(sadTrombone);
 			Instantiate(guiElementPrefab);
 			gameLost = true;
 
@@ -50,7 +53,7 @@ public class Kapselmoverscript : MonoBehaviour {
 		dir.x = Input.acceleration.x;
 
 		//dir.x = 1.5f;
-		//dir.y = 1.5f;
+		//dir.y = 0.0f;
 
 		if (dir.sqrMagnitude > 1) {
 			dir.Normalize ();
@@ -111,39 +114,36 @@ public class Kapselmoverscript : MonoBehaviour {
 		}
 	}
 */
-	void OnCollisionEnter2D (Collision2D other) {
+	void OnCollisionStay2D (Collision2D other) {
 	
 
 		if (vulnerable) {
-			//playsound
+						//playsound
+						audio.PlayOneShot (dotzSound);
+						playerHP--;
+						//	Debug.Log ("Autsch!");
+						vulnerable = false;
+						StartCoroutine (Invulnerable (0.5F));
 
-			playerHP--;
-		//	Debug.Log ("Autsch!");
-			vulnerable = false;
-			StartCoroutine(Invulnerable(0.5F));
+		
 
-		}
+						if (GameObject.Find ("BumperA1").GetComponent<Taster> ().activated || GameObject.Find ("BumperB1").GetComponent<Taster> ().activated) {
 
-		if (GameObject.Find ("BumperA1").GetComponent<Taster> ().activated || GameObject.Find ("BumperB1").GetComponent<Taster> ().activated) {
+								if (drehrichtung == 1) {
+										transform.Rotate (0, 0, drehSpeed * 50.0f * drehrichtung);
+								} else if (drehrichtung == -1) {
+										transform.Rotate (0, 0, (-1) * drehSpeed * 50.0f * drehrichtung);
+								}
 
-			if (drehrichtung == 1) {
-				transform.Rotate (0, 0, drehSpeed * 50.0f * drehrichtung);
-			}
+						} else if (GameObject.Find ("BumperA2").GetComponent<Taster> ().activated || GameObject.Find ("BumperB2").GetComponent<Taster> ().activated) {
 
-			else if (drehrichtung == -1) {
-				transform.Rotate (0, 0, (-1)* drehSpeed * 50.0f * drehrichtung);
-			}
-
-		} else if (GameObject.Find ("BumperA2").GetComponent<Taster> ().activated || GameObject.Find ("BumperB2").GetComponent<Taster> ().activated) {
-
-			if (drehrichtung == 1) {
-				transform.Rotate (0, 0, drehSpeed * 50.0f * (-1) * drehrichtung);
-			}
-			
-			else if (drehrichtung == -1) {
-				transform.Rotate (0, 0, drehSpeed * 50.0f * drehrichtung);
-			}
-		}
+								if (drehrichtung == 1) {
+										transform.Rotate (0, 0, drehSpeed * 50.0f * (-1) * drehrichtung);
+								} else if (drehrichtung == -1) {
+										transform.Rotate (0, 0, drehSpeed * 50.0f * drehrichtung);
+								}
+						}
+				}
 	}
 
 	IEnumerator ReEnable(float waitTime) {
@@ -154,6 +154,8 @@ public class Kapselmoverscript : MonoBehaviour {
 
 	IEnumerator Invulnerable(float waitTime) {
 		yield return new WaitForSeconds(waitTime);
-		vulnerable = true;
+		if (playerHP > 0) {
+			vulnerable = true;
+		}
 	}
 }
