@@ -69,6 +69,7 @@
      <Compile Include="Assets\Standard Assets (Mobile)\Scripts\LevelCreator.cs" />
      <Compile Include="Assets\Standard Assets (Mobile)\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Taster.cs" />
+     <Compile Include="Assets\TorchOn.cs" />
      <Compile Include="Assets\Water Flow Free\Scripts\WaterFlow.cs" />
      <Compile Include="Assets\Water Flow Free\Scripts\WaterFlowDemo.cs" />
      <Compile Include="Assets\Water Flow Free\Scripts\WaterFlowOrbitCamera.cs" />
