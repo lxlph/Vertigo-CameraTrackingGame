@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Camera : MonoBehaviour {
+public class CameraScript : MonoBehaviour {
 
 	void OnMouseDown(){
 		Debug.Log ("Kamera wird geladen");

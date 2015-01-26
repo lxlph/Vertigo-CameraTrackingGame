@@ -1,21 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Standard Assets (Mobile)/Scripts/LevelCreator.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Menu\Scripts\CameraScript.cs">
     <Files>
-      <File FileName="Assets/Menu/Scripts/CameraController.cs" Line="29" Column="1" />
-      <File FileName="Assets/Scripts/PlayerMovement.cs" Line="1" Column="1" />
-      <File FileName="Assets/ColliderCreator.cs" Line="1" Column="1" />
-      <File FileName="Assets/Standard Assets (Mobile)/Scripts/LevelCreator.cs" Line="21" Column="3" />
-      <File FileName="Assets/LoadCameraPlane.cs" Line="1" Column="1" />
-      <File FileName="Assets/WinnerScriptNormalMode.cs" Line="1" Column="1" />
-      <File FileName="Assets/guiButtonScript.cs" Line="1" Column="1" />
-      <File FileName="Assets/winGUI.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/liveBar.cs" Line="1" Column="1" />
-      <File FileName="Assets/ScreenBright.cs" Line="1" Column="1" />
-      <File FileName="Assets/FollowRotor.cs" Line="1" Column="1" />
-      <File FileName="Assets/Menu/Scripts/LoadMenu.cs" Line="1" Column="1" />
-      <File FileName="Assets/EdgeColliderDummySetter.cs" Line="17" Column="1" />
-      <File FileName="Assets/visibilityCollider.cs" Line="9" Column="27" />
+      <File FileName="Assets\Menu\Scripts\CameraScript.cs" Line="4" Column="26" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
