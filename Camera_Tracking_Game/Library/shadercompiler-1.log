@@ -1,5 +1,5 @@
-Base path: /Applications/Unity/Unity.app/Contents
-Pipe name: \\.\pipe\UnityShaderCompiler-1--1586830936
+Base path: C:/Program Files/Editor/Data
+Pipe name: \\.\pipe\UnityShaderCompiler-1-5924
 Cmd: getPlatforms
 Cmd: preprocess
   insize=848 outsize=848 ok=1
@@ -7,22 +7,6 @@ Cmd: preprocess
   insize=495 outsize=495 ok=1
 Cmd: preprocess
   insize=859 outsize=1289 ok=1
-Cmd: compileSnippet
-  api=0 type=0 insize=4598 outsize=919 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF ok=1
-Cmd: compileSnippet
-  api=0 type=1 insize=4598 outsize=440 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF ok=1
-Cmd: compileSnippet
-  api=0 type=0 insize=2574 outsize=817 kw=POINT ok=1
-Cmd: compileSnippet
-  api=0 type=1 insize=2574 outsize=618 kw=POINT ok=1
-Cmd: compileSnippet
-  api=0 type=0 insize=2102 outsize=457 kw= ok=1
-Cmd: compileSnippet
-  api=0 type=1 insize=2102 outsize=159 kw= ok=1
-Cmd: compileSnippet
-  api=0 type=0 insize=4315 outsize=905 kw=LIGHTMAP_OFF DIRLIGHTMAP_OFF HDR_LIGHT_PREPASS_OFF ok=1
-Cmd: compileSnippet
-  api=0 type=1 insize=4315 outsize=415 kw=LIGHTMAP_OFF DIRLIGHTMAP_OFF HDR_LIGHT_PREPASS_OFF ok=1
 Cmd: preprocess
   insize=876 outsize=876 ok=1
 Cmd: preprocess
@@ -37,6 +21,3 @@ Cmd: preprocess
   insize=664 outsize=664 ok=1
 Cmd: preprocess
   insize=1000 outsize=1000 ok=1
-End of pipe
-
-Quitting shader compiler process

@@ -13,6 +13,8 @@ public class LoadMenu : MonoBehaviour {
 	public bool notPlayedYet;
 
 	void Start () {
+		Screen.orientation = ScreenOrientation.LandscapeLeft;
+
 		notPlayedYet = true;
 	}
 

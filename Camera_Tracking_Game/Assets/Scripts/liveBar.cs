@@ -12,8 +12,13 @@ public class liveBar : MonoBehaviour {
 	void Update () {
 		posY = transform.position.y;
 		Vector3 PlayerPOS = GameObject.Find("Player").transform.transform.position;
-		transform.position = new Vector3(PlayerPOS.x + 11, posY, PlayerPOS.z + 7);
+		transform.position = new Vector3(PlayerPOS.x + 8, posY, PlayerPOS.z + 5);
 		spriteIndex = GameObject.Find ("Player").GetComponent<PlayerMovement> ().playerHealth;
 		gameObject.GetComponent<SpriteRenderer>().sprite = liveBarSprites[spriteIndex];
+
+		if (GameObject.Find ("Player").GetComponent<PlayerMovement> ().gameLost) {
+			gameObject.GetComponent<SpriteRenderer>().sprite = null;
+
+		}
 	}
 }

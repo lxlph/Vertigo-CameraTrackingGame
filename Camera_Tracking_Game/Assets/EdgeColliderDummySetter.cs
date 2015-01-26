@@ -13,4 +13,6 @@ public class EdgeColliderDummySetter : MonoBehaviour {
 		gameObject.GetComponent<EdgeCollider2D>().points = uebergebenePunkte;
 
 	}
+
+
 }

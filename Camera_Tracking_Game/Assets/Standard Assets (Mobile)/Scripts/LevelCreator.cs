@@ -108,7 +108,7 @@ public class LevelCreator : MonoBehaviour {
 				if(truePixels[j, i]) {
 					int umgebendePixelWeiss = 0;
 					int umgebendePixelRot = 0;
-					int umgebendePixelBlau = 0;
+					int umgebendePixelGruen = 0;
 
 					for (int k = -3; k <= 3; k++) {
 
@@ -125,8 +125,8 @@ public class LevelCreator : MonoBehaviour {
 										umgebendePixelWeiss++;
 									}
 									//HIER EVENTUELL EINSTELLEN
-									if (levelbild.GetPixel (j + k, i + l).r < 0.5f && levelbild.GetPixel (j + k, i + l).b > 0.4f && levelbild.GetPixel (j + k, i + l).g < 0.8f) {
-										umgebendePixelBlau++;
+									if (levelbild.GetPixel (j + k, i + l).r < 0.6f && levelbild.GetPixel (j + k, i + l).b < 0.6f && levelbild.GetPixel (j + k, i + l).g > 0.6f) {
+										umgebendePixelGruen++;
 									}
 
 									if (levelbild.GetPixel (j + k, i + l).r > 0.5f && levelbild.GetPixel (j + k, i + l).b < 0.4f && levelbild.GetPixel (j + k, i + l).g < 0.4f) {
@@ -134,17 +134,17 @@ public class LevelCreator : MonoBehaviour {
 									}
 
 
-									if (umgebendePixelWeiss >= 1) {
+									if (umgebendePixelWeiss >= 2) {
 										truePixels[j, i] = false;
 										break;
 									}
 
-									if (umgebendePixelRot >= 8) {
+									if (umgebendePixelRot >= 5) {
 										truePixels[j, i] = false;
 										break;
 									}
 
-									if (umgebendePixelBlau >= 6) {
+									if (umgebendePixelGruen >= 3) {
 										truePixels[j, i] = false;
 										break;
 									}
@@ -234,6 +234,16 @@ public class LevelCreator : MonoBehaviour {
 		bool instantiatedTarget = false;
 		int instantiateCountPlayer = 0;
 		int instantiateCountTarget = 0;
+
+		//speichert die addierten werte für die farbe, falls mehrmals instanziiert werden soll, wird im höheren wert instanziiert
+		float instantiateRed = 0.0f;
+		float instantiateGreen = 0.0f;
+
+		//vergleichswert
+		float instantiateRedCurrent = 0.0f;
+		float instantiateGreenCurrent = 0.0f;
+
+
 		float faktor = (0.4f * (500.0f/levelbild.height)); //faktor durch probieren -.-'
 
 		for (int i = 0; i < levelbild.height; i++) {
@@ -241,7 +251,7 @@ public class LevelCreator : MonoBehaviour {
 				for (int j = 0; j < levelbild.width; j++) {
 						//fängt unten links an! x = x y = y
 								
-								if ((!instantiatedPlayer) && levelbild.GetPixel (j, i).r > 0.6f && levelbild.GetPixel (j, i).b < 0.45f && levelbild.GetPixel (j, i).g < 0.45f) {
+								if ((!instantiatedPlayer) && levelbild.GetPixel (j, i).r > 0.54f && levelbild.GetPixel (j, i).b < 0.5f && levelbild.GetPixel (j, i).g < 0.5f) {
 									
 						
 									for (int k = -3; k <= 3; k++) {
@@ -255,14 +265,17 @@ public class LevelCreator : MonoBehaviour {
 												if ((j + k) >= 0 && (j + k) < levelbild.width && (i + l) >= 0 && (i + l) < levelbild.height) {
 													
 													if (levelbild.GetPixel (j + k, i + l).r > 0.4f && levelbild.GetPixel (j + k, i + l).b < 0.4f && levelbild.GetPixel (j + k, i + l).g < 0.4f) {
-														instantiateCountPlayer++;
-														
-														if (instantiateCountPlayer >= 6) {
-										//	Debug.Log ("test");
+										if((levelbild.GetPixel (j + k, i + l).r > (1.5f*((levelbild.GetPixel (j + k, i + l).g) + (levelbild.GetPixel (j + k, i + l).b))/2.0f))) {
+															instantiateCountPlayer++;
+											instantiateRedCurrent = instantiateRedCurrent + (levelbild.GetPixel (j + k, i + l).r);
+										}
+
+														if (instantiateCountPlayer == 6 && (instantiateRedCurrent > instantiateRed)) {
 
 											GameObject.FindGameObjectWithTag("Rotor").transform.position = (new Vector3 (((j + k) - (levelbild.width / 2)) * (faktor), (((i + l) - (levelbild.height / 2)) * faktor )));
 											instantiatedPlayer = true;
 											instantiateCountPlayer = 0;
+											instantiateRed = instantiateRedCurrent;
 
 										}
 									}
@@ -282,7 +295,7 @@ public class LevelCreator : MonoBehaviour {
 				
 								}
 
-				if ((!instantiatedTarget) && levelbild.GetPixel (j, i).r < 0.5f && levelbild.GetPixel (j, i).b > 0.5f && levelbild.GetPixel (j, i).g < 0.95f) {
+				if ((!instantiatedTarget) && levelbild.GetPixel (j, i).r < 0.6f && levelbild.GetPixel (j, i).b < 0.6f && levelbild.GetPixel (j, i).g > 0.4f) {
 					for (int k = -3; k <= 3; k++) {
 										
 										for (int l = -3; l <= 3; l++) {
@@ -293,13 +306,18 @@ public class LevelCreator : MonoBehaviour {
 												//damit für die randpixel nicht alle umgebenden pixel auch noch gecheckt werden (out of bounds)
 												if ((j + k) >= 0 && (j + k) < levelbild.width && (i + l) >= 0 && (i + l) < levelbild.height) {
 													
-									if (levelbild.GetPixel (j + k, i + l).r < 0.4f && levelbild.GetPixel (j + k, i + l).b > 0.4f && levelbild.GetPixel (j + k, i + l).g < 0.95f) {
+									if (levelbild.GetPixel (j + k, i + l).r < 0.6f && levelbild.GetPixel (j + k, i + l).b < 0.6f && levelbild.GetPixel (j + k, i + l).g > 0.4f) {
+										//sonst probleme wegen farbabstand
+										if((levelbild.GetPixel (j + k, i + l).g - levelbild.GetPixel (j + k, i + l).b) > 0.18f) {
 														instantiateCountTarget++;
+														instantiateGreenCurrent = instantiateGreenCurrent + (levelbild.GetPixel (j + k, i + l).g);
 
-										if (instantiateCountTarget >= 6) {
+										}
+										if (instantiateCountTarget == 6 && (instantiateGreenCurrent > instantiateGreen)) {
 															GameObject.FindGameObjectWithTag("Target").transform.position = (new Vector3 (((j + k) - (levelbild.width / 2)) * (faktor), (((i + l) - (levelbild.height / 2)) * faktor )));
 															instantiatedTarget = true;
 															instantiateCountTarget = 0;
+															instantiateGreen = instantiateGreenCurrent;
 
 														}
 													
@@ -324,9 +342,12 @@ public class LevelCreator : MonoBehaviour {
 								if (instantiatedPlayer && instantiatedTarget) {
 									break;
 								}
+				instantiateRedCurrent = 0;
+				instantiateGreenCurrent = 0;
 
 						}
 		}
 	}
+
 
 }

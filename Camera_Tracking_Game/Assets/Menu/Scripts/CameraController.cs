@@ -2,12 +2,13 @@
 using System.Collections;
 using System.IO;
 using System;
+
+
 public class CameraController : MonoBehaviour {
 	public string deviceName;
 	WebCamTexture wct;
 	public Texture2D snap;
 	public GUISkin myGuiBlank;
-	int indexPhoto = 0;
 	public static int photoNumber = 0;
 	bool fotoGeschossen = false;
 	bool beimFotoLaden = false;
@@ -25,6 +26,7 @@ public class CameraController : MonoBehaviour {
 	public Texture ph1 = null;
 	public Texture ph2 = null;
 	public Texture ph3 = null;
+	private bool nextMode = true;
 	
 	//bool front_facing = false;
 	//int t = 0;
@@ -57,6 +59,8 @@ t++;
 	if (!fotoGeschossen && !beimFotoLaden && !beimFotoSpeichern){
 		cameraMode ();
 		//Time.timeScale = 0;
+		
+			
 		if (GUI.Button(new Rect(Screen.width / 150, 45, TakeP.width / 2, TakeP.height / 2), TakeP)){
 			//Time.timeScale = 0;
 			StartCoroutine(TakePhoto());
@@ -80,6 +84,7 @@ t++;
 
 				//	LoadPhoto(0);
 					//					Application.LoadLevel("LevelCreatorScene(CopyLater)");
+					Destroy (gameObject);
 					Application.LoadLevel("Menu");
 
 				
@@ -88,7 +93,6 @@ t++;
 	}
 	/**Soll das Foto gespeichert werden?**/
 	if (fotoGeschossen){
-		GUILayout.Label("Foto speichern?", guiAnweisungen);
 		Time.timeScale = 0;
 		if (GUI.Button (new Rect(Screen.width / 150, Screen.height / 13, Ja.width / 2, Ja.height / 2), Ja)){
 			beimFotoSpeichern = true;
@@ -137,7 +141,6 @@ t++;
 	}
 	/**Speicherplatz für geschossenes Foto auswählen**/
 	if(beimFotoSpeichern){
-		GUILayout.Label("Speicherplatz für Foto auswählen.", guiAnweisungen);
 		//Time.timeScale = 0;
 			if (GUI.Button (new Rect(10, 45, ph0.width, 66), ph0)){
 				photoNumber = 0;

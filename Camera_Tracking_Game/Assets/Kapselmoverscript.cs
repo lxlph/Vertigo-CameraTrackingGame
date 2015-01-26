@@ -49,8 +49,8 @@ public class Kapselmoverscript : MonoBehaviour {
 		//enable für mobile
 
 
-		dir.y = Input.acceleration.y;
-		dir.x = Input.acceleration.x;
+		dir.y = 1.3f*(Input.acceleration.y);
+		dir.x = 1.3f*(Input.acceleration.x);
 
 		//dir.x = 1.5f;
 		//dir.y = 0.0f;

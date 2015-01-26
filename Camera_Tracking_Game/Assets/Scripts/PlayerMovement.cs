@@ -12,6 +12,10 @@ public class PlayerMovement : MonoBehaviour
 	public bool vulnerable = true;
 	public int fingerCount;
 	public AudioClip getHit;
+	public bool gameLost;
+	public GameObject normalModeWinGUI;
+	public AudioClip sadTrombone;
+
 
 	void Start () {
 		playerHealth = 3;
@@ -31,21 +35,27 @@ public class PlayerMovement : MonoBehaviour
 		}
 
 		//Vector3 movement = new Vector3 (dir.x, 0.0f, dir.z);
-		Vector3 movement = new Vector3 (dir.x, 0.0f, dir.z);
-		rigidbody.velocity = movement * mspeed;
+		if (!gameLost && !GameObject.Find("WinnerCubeNormalMode").GetComponent<WinnerScriptNormalMode>().instantiated) {
+						Vector3 movement = new Vector3 (dir.x, 0.0f, dir.z);
+						rigidbody.velocity = movement * mspeed;
+		} else {
+			rigidbody.velocity = new Vector3 (0, 0, 0);
 
-
-		if (rotation == 1) 
-		{
-			angle += +40f * Time.deltaTime;
-			transform.eulerAngles = new Vector3 (0, angle, 0);
-		}
-		else 
-		{
-			angle += -40f * Time.deltaTime;
-			transform.eulerAngles = new Vector3 (0, angle, 0);
 		}
 
+		if (rotation == 1) {
+			if (!gameLost && !GameObject.Find("WinnerCubeNormalMode").GetComponent<WinnerScriptNormalMode>().instantiated) {
+
+						angle += +40f * Time.deltaTime;
+						transform.eulerAngles = new Vector3 (0, angle, 0);
+			}
+				} else {
+			if (!gameLost && !GameObject.Find("WinnerCubeNormalMode").GetComponent<WinnerScriptNormalMode>().instantiated) {
+								angle += -40f * Time.deltaTime;
+								transform.eulerAngles = new Vector3 (0, angle, 0);
+		
+						}
+				}
 
 		if (changeEnabled && Input.GetKeyDown(KeyCode.Space)) {
 		
@@ -69,9 +79,9 @@ public class PlayerMovement : MonoBehaviour
 
 	}
 
-	void OnCollisionEnter(Collision other) {
+	void OnCollisionStay(Collision other) {
 		
-		if (vulnerable) {
+		if (vulnerable && other.gameObject.name != "WinnerCubeNormalMode") {
 			//playsound
 			//	Debug.Log ("Autsch!");
 
@@ -84,8 +94,12 @@ public class PlayerMovement : MonoBehaviour
 			StartCoroutine(Invulnerable(0.5F));
 			
 		}
-		if (playerHealth <= 0){
-			Application.LoadLevel("Menu");
+		if (playerHealth <= 0 && gameLost == false){
+
+			gameLost = true;
+			audio.PlayOneShot(sadTrombone);
+			Instantiate(normalModeWinGUI);
+
 		}
 	}
 
